@@ -8,9 +8,24 @@ namespace VG
     public class IapCatalog : ScriptableObject
     {
 
-        [SerializeField] private List<Iap.Product> _products;
+        [SerializeField] private List<Product> _products; public List<Product> products => _products; 
 
-        public List<Iap.Product> products { get => _products; }
+        private Dictionary<string, Product> _productsDictionary;
+
+        public Product GetProduct(string key_product)
+        {
+            if (_productsDictionary == null)
+            {
+                _productsDictionary = new Dictionary<string, Product>();
+                foreach (var item in _products)
+                    _productsDictionary.Add(item.key, item);
+            }
+
+            if (_productsDictionary.ContainsKey(key_product))
+                return _productsDictionary[key_product];
+
+            return null;
+        }
 
 
 

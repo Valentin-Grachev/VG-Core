@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,9 +20,7 @@ namespace VG
 
         public override bool supported => _useInBuild || Environment.editor;
 
-        public override void Consume(string key_product) => Core.LogEditor("Consumed: " + key_product);
-
-        public override void DeletePurchases() => Core.LogEditor("Purchases deleted.");
+        public override void MarkAsConsumed(string key_product) => Core.LogEditor("Consumed: " + key_product);
 
 
         public override string GetPriceString(string key_product) => key_product.ToString();
@@ -31,11 +28,6 @@ namespace VG
 
         public override void Initialize() => InitCompleted();
 
-        public override void InitializeProducts(List<Iap.Product> products)
-        {
-            foreach (var product in products) 
-                product.Initialize(0);
-        }
 
         public override void Purchase(string key_product, Action<bool> onSuccess)
         {
@@ -56,8 +48,6 @@ namespace VG
                 onSuccess?.Invoke(false);
             });
         }
-
-        protected override void OnInitialized() { }
     }
 }
 

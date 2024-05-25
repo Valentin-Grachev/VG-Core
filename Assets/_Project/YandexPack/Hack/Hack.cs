@@ -65,8 +65,5 @@ public class Hack : Initializable
 
 
 
-    protected override void OnInitialized() { }
-
-
 
 }

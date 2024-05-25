@@ -19,8 +19,6 @@ namespace VG
             Core.LogEditor("Review requested.");
             onHandled?.Invoke();
         }
-
-        protected override void OnInitialized() { }
     }
 }
 

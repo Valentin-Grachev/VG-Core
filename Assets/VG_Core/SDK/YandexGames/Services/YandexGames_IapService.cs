@@ -9,7 +9,6 @@ namespace VG
 {
     public class YandexGames_IapService : IapService
     {
-        private List<Iap.Product> _products;
         private List<string> _purchasedProductIds;
         private Dictionary<string, string> _productPrices;
 
@@ -20,7 +19,7 @@ namespace VG
             Environment.platform == Environment.Platform.WebGL && !Environment.editor;
 
 
-        public override void Consume(string key_product) => YG_Purchases.Consume(key_product);
+        public override void MarkAsConsumed(string key_product) => YG_Purchases.Consume(key_product);
 
         public override string GetPriceString(string key_product)
         {
@@ -61,31 +60,23 @@ namespace VG
             InitCompleted();
         }
 
-        public override void InitializeProducts(List<Iap.Product> products)
+        public override Dictionary<string, int> GetPurchasesQuantity()
         {
-            _products = products;
+            var purchases = new Dictionary<string, int>();
 
-            foreach (var product in products)
+            foreach (var purchasedProductId in _purchasedProductIds)
             {
-                int productPurchaseQuantity = 0;
+                if (purchases.ContainsKey(purchasedProductId))
+                    purchases[purchasedProductId]++;
 
-                foreach (var purchasedProductId in _purchasedProductIds)
-                    if (product.key == purchasedProductId) productPurchaseQuantity++;
-
-                product.Initialize(productPurchaseQuantity);
+                else purchases.Add(purchasedProductId, 1);
             }
+
+            return purchases;
         }
 
         public override void Purchase(string productKey, Action<bool> onSuccess)
             => YG_Purchases.Purchase(productKey, onSuccess);
-
-
-        protected override void OnInitialized() { }
-
-        public override void DeletePurchases()
-        {
-            foreach (var product in _products) product.ForceConsume();
-        }
 
 
         public void SetPriceLanguage(Language language)

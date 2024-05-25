@@ -51,7 +51,6 @@ namespace VG
                 update.SpendTime(Time.unscaledDeltaTime);
         }
 
-        protected override void OnInitialized() { }
     }
 }
 

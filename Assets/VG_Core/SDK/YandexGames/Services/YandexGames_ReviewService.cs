@@ -12,8 +12,6 @@ namespace VG
 
         public override void Initialize() => InitCompleted();
 
-        protected override void OnInitialized() { }
-
 
         public override void Request(System.Action onHandled)
         {

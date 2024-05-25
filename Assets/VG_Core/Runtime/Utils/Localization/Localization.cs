@@ -64,11 +64,6 @@ namespace VG
             InitCompleted();
         }
 
-
-
-        protected override void OnInitialized() { }
-
-
         public static string GetString(string key, bool useToken = false)
         {
             string localizedString = instance._stringData.translations[key].Get(currentLanguage);

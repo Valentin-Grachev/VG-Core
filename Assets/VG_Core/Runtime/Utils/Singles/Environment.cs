@@ -56,8 +56,6 @@ namespace VG
             InitCompleted();
         }
 
-        protected override void OnInitialized() { }
-
     }
 }
 

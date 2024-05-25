@@ -29,8 +29,6 @@ namespace VG
 
         public override void Initialize() => InitCompleted();
 
-        protected override void OnInitialized() { }
-
         [Button("Clear data")]
         private void ClearData() => PlayerPrefs.DeleteAll();
 

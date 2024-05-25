@@ -28,8 +28,6 @@ namespace VG
             else InitCompleted();
         }
 
-        protected override void OnInitialized() { }
-
         public static AudioClip GetClip(string name) => cashedClips[name + ".mp3"];
 
 
