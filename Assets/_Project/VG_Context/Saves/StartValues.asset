@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c380835282fff541899049a98a3768d, type: 3}
+  m_Name: StartValues
+  m_EditorClassIdentifier: 
+  money: 0
+  gems: 3
+  autoplays: 3
+  speedModeTime: 0
+  promotionsData:
+  - {fileID: 11400000, guid: a4f4034d480c0fc4a81838f608a33828, type: 2}
+  - {fileID: 11400000, guid: dbdc1141600e8b14dbcb5aaf8b4bd64a, type: 2}
+  - {fileID: 11400000, guid: 16de5a5aa7b0a5d4582e02f8c1f2d36f, type: 2}

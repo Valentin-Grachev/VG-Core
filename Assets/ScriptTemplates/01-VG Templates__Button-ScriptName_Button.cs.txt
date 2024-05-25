@@ -1,0 +1,13 @@
+using UnityEngine;
+using VG;
+
+
+public class #SCRIPTNAME# : ButtonHandler
+{
+    #NOTRIM#
+    protected override void OnClick()
+    {
+        #NOTRIM#
+    }
+    #NOTRIM#
+}

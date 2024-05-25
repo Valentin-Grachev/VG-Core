@@ -1,0 +1,22 @@
+using UnityEngine;
+using VG;
+
+public class #SCRIPTNAME# : Info
+{
+    #NOTRIM#
+    protected override void Subscribe()
+    {
+        #NOTRIM#
+    }
+    #NOTRIM#
+    protected override void Unsubscribe()
+    {
+        #NOTRIM#
+    }
+    #NOTRIM#
+    protected override void UpdateValue()
+    {
+        #NOTRIM#
+    }
+    #NOTRIM#
+}

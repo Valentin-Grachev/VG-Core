@@ -1,0 +1,17 @@
+using UnityEngine;
+using VG;
+
+public class #SCRIPTNAME# : EventHandler
+{
+    #NOTRIM#
+    protected override void Subscribe()
+    {
+        #NOTRIM#
+    }
+    #NOTRIM#
+    protected override void Unsubscribe()
+    {
+        #NOTRIM#
+    }
+    #NOTRIM#
+}

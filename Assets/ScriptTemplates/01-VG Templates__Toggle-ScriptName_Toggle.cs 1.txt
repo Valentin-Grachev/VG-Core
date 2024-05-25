@@ -1,0 +1,14 @@
+using UnityEngine;
+using VG;
+
+public class #SCRIPTNAME# : ToggleHandler
+{
+    #NOTRIM#
+    protected override bool startValue => false;
+    #NOTRIM#
+    protected override void OnSwitch(bool value)
+    {
+        #NOTRIM#
+    }
+    #NOTRIM#
+}
