@@ -26,7 +26,7 @@ namespace VG
             (Saves.String[Key_Save.last_time].Value)).TotalSeconds;
 
             PassTime(passedSeconds);
-            UpdateHandler.updates[Key_Update.one_second].onUpdate += OnOneSecondPassed;
+            Repeater.handlers[Key_Repeat.one_second].onUpdate += OnOneSecondPassed;
         }
 
         private void PassTime(float time)

@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace VG
 {
-    public class UpdateHandler : Initializable
+    public class Repeater : Initializable
     {
 
         [System.Serializable]
-        public class UpdateHandlerInfo
+        public class RepeatInfo
         {
             [SerializeField] private string _key; public string key => _key;
             [SerializeField] private float _timeInterval;
@@ -31,14 +31,14 @@ namespace VG
         }
 
 
-        [SerializeField] private List<UpdateHandlerInfo> _updates;
-        public static Dictionary<string, UpdateHandlerInfo> updates = new Dictionary<string, UpdateHandlerInfo>();
+        [SerializeField] private List<RepeatInfo> _handlers;
+        public static Dictionary<string, RepeatInfo> handlers = new Dictionary<string, RepeatInfo>();
 
 
         public override void Initialize()
         {
-            foreach (var update in _updates)
-                updates.Add(update.key, update);
+            foreach (var update in _handlers)
+                handlers.Add(update.key, update);
 
             InitCompleted();
         }
@@ -47,7 +47,7 @@ namespace VG
 
         private void Update()
         {
-            foreach (var update in _updates)
+            foreach (var update in _handlers)
                 update.SpendTime(Time.unscaledDeltaTime);
         }
 
