@@ -17,9 +17,9 @@ namespace VG
             Log(Core.Message.Initialized(managerName));
         }
 
-        public static void Request(Action onHandled = null)
+        public static void Request(Action onOpened = null, Action onClosed = null)
         {
-            service.Request(onHandled);
+            service.Request(onOpened, onClosed);
             instance.Log("Requested.");
         }
 

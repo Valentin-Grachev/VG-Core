@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 499254820}
   - component: {fileID: 499254822}
-  - component: {fileID: 499254823}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -207,14 +206,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &499254823
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499254819}
-  m_Enabled: 1
 --- !u!1001 &909529204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2056,7 +2047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0cc19efe39ee7438e4c6032b075350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useInBuild: 0
+  _useInBuild: 1
 --- !u!222 &2059645833635368512
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2096,6 +2087,7 @@ GameObject:
   - component: {fileID: 1324120014957856514}
   - component: {fileID: 233663677550081733}
   - component: {fileID: 1778464940644469694}
+  - component: {fileID: 2186359623144661382}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -2103,6 +2095,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &2186359623144661382
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2186359623144661381}
+  m_Enabled: 1
 --- !u!1 &2187368846050886094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4742,8 +4742,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugLogs: 0
   _services:
-  - {fileID: 5586674214463914613}
   - {fileID: 5901857363285967689}
+  - {fileID: 5586674214463914613}
   _waitInitializations:
   - {fileID: 5624364671187809791}
   _iapCatalog: {fileID: 11400000, guid: 5e41301309eb4484a870830a86685e71, type: 2}

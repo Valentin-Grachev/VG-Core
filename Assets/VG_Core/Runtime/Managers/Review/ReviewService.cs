@@ -6,7 +6,7 @@ namespace VG
 {
     public abstract class ReviewService : Service
     {
-        public abstract void Request(Action onHandled);
+        public abstract void Request(Action onOpened, Action onClosed);
 
     }
 }

@@ -1,4 +1,5 @@
 using VG.YandexGames;
+using System;
 
 
 
@@ -13,14 +14,13 @@ namespace VG
         public override void Initialize() => InitCompleted();
 
 
-        public override void Request(System.Action onHandled)
+        public override void Request(Action onOpened, Action onClosed)
         {
-            YG_Review.Request();
-            onHandled?.Invoke();
+            onOpened += () => TimeQueue.AddChange(TimeQueue.TimeType.StopAll);
+            onClosed += () => TimeQueue.RemoveChange(TimeQueue.TimeType.StopAll);
+
+            YG_Review.Request(onOpened, onClosed);
         }
-
-
-
     }
 }
 

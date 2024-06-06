@@ -193,9 +193,11 @@ mergeInto(LibraryManager.library, {
     sdk.feedback.canReview()
       .then(({ value, reason }) => {
         if (value) {
+          unity.SendMessage('YandexGames', 'HTML_OnReviewOpened');
           sdk.feedback.requestReview()
             .then(({ feedbackSent }) => {
               console.log(feedbackSent);
+              unity.SendMessage('YandexGames', 'HTML_OnReviewClosed');
             })
         } else {
           console.log(reason)
