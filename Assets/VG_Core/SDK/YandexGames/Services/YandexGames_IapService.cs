@@ -12,7 +12,6 @@ namespace VG
         private List<string> _purchasedProductIds;
         private Dictionary<string, string> _productPrices;
 
-        private string _currency = "YAN";
 
 
         public override bool supported =>
@@ -26,7 +25,7 @@ namespace VG
             if (!_productPrices.ContainsKey(key_product))
                 return string.Empty;
 
-           return _productPrices[key_product].Replace("YAN", _currency);
+           return _productPrices[key_product];
         }
 
 
@@ -77,23 +76,6 @@ namespace VG
 
         public override void Purchase(string productKey, Action<bool> onSuccess)
             => YG_Purchases.Purchase(productKey, onSuccess);
-
-
-        public void SetPriceLanguage(Language language)
-        {
-            switch (language)
-            {
-                case Language.RU:
-                    _currency = "ßÍÎÂ";
-                    break;
-
-                case Language.TR:
-                case Language.EN:
-                    _currency = "YAN";
-                    break;
-
-            }
-        }
 
 
 
