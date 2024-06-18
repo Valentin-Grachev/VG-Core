@@ -5,6 +5,8 @@ namespace VG.Internal
 {
     public static class Core
     {
+        public const string version = "v.1.1.0";
+
         private const string vgDebugColor = "#9D68D3";
         private const string editorDebugColor = "#00B454";
 

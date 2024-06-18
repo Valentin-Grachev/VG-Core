@@ -12,8 +12,8 @@ namespace VG
         public static event Action onLoaded;
         public static bool loaded { get; private set; }
 
-
         [SerializeField] private List<Initializable> _initializables;
+        public List<Initializable> initializables => _initializables;
 
 
         private void Awake()
@@ -48,7 +48,6 @@ namespace VG
                 onLoaded?.Invoke();
             }
         }
-
 
 
 

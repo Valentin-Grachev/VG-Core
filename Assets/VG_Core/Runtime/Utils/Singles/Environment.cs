@@ -8,7 +8,6 @@ namespace VG
 
         public static bool test { get; private set; }
 
-
         [SerializeField] private bool _testVersion;
 
 
