@@ -26,6 +26,7 @@ namespace VG
         {
             var entry = _playerEntry;
             entry.score = PlayerPrefs.GetInt(playerPrefsScoreKey, 0);
+            onReceived?.Invoke(entry);
         }
 
         public override void Initialize() => InitCompleted();
