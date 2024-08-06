@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using VG.Internal;
 
@@ -15,6 +16,21 @@ namespace VG
 
 
         [SerializeField] private IapCatalog _iapCatalog;
+
+        public override void Initialize()
+        {
+            StartCoroutine(InitializeWithSaves());
+        }
+
+        private IEnumerator InitializeWithSaves()
+        {
+            yield return new WaitUntil(() => Saves.Initialized);
+
+            supportedService = GetSupportedService();
+            supportedService.onInitialized += InitCompleted;
+            supportedService.Initialize();
+            
+        }
 
         protected override void OnInitialized()
         {

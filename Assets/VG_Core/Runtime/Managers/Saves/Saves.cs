@@ -233,6 +233,8 @@ namespace VG
 
         private static Saves instance;
 
+        public static bool Initialized => instance != null && service.initialized;
+
         private static SaveService service => instance.supportedService as SaveService;
 
         protected override string managerName => "VG Saves";

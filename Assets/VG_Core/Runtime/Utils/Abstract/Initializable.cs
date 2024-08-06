@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -6,6 +7,7 @@ namespace VG
     public abstract class Initializable : MonoBehaviour
     {
         public bool initialized { get; private set; }
+        public event Action onInitialized;
 
         public abstract void Initialize();
 
@@ -15,6 +17,7 @@ namespace VG
         {
             initialized = true;
             OnInitialized();
+            onInitialized?.Invoke();
         }
 
 

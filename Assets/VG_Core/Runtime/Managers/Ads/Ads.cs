@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using VG.Internal;
 
@@ -7,8 +8,6 @@ namespace VG
 {
     public class Ads : Manager
     {
-
-
         private static Ads instance; 
 
         public static bool skipAds 
@@ -38,10 +37,17 @@ namespace VG
             instance = this;
             _currentInterstitialCooldown = interstitialCooldown;
             Log(Core.Message.Initialized(managerName));
+                
+            StartCoroutine(SubscribeForEnableAds());
+        }
+
+        private IEnumerator SubscribeForEnableAds()
+        {
+            yield return new WaitUntil(() => Saves.Initialized);
             Saves.Bool[Key_Save.ads_enabled].onChanged += OnAdsEnabledChanged;
         }
 
-        
+
 
         public static class Rewarded
         {
