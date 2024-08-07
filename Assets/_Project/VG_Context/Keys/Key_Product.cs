@@ -8,10 +8,13 @@ namespace VG
         public static List<string> all = new List<string>
         {
             "None",
-            no_ads, 
+            no_ads,
+            test_consumable,
         };
 
         public const string no_ads = nameof(no_ads);
+        public const string test_consumable = nameof(test_consumable);
+
 
 
     }

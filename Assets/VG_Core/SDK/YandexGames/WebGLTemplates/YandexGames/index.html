@@ -33,6 +33,7 @@
       var sdk = null;
       var payments = null;
       var player = null;
+      var lb = null;
 
 
       // Инициализация СДК
@@ -49,6 +50,8 @@
 
           InitPayments();
           InitPlayer();
+          sdk.getLeaderboards().then(_lb => lb = _lb);
+          
 
         });
 

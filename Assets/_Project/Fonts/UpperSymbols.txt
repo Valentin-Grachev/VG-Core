@@ -1,0 +1,14 @@
+SYMBOLS:
+. ,!:;'#*()?&^$|%=+-№@"~/\<>_[]{}
+
+NUMBERS:
+1234567890
+
+RU:
+АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ
+
+EN:
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+TR:
+ÇĞIIIÖŞÜ

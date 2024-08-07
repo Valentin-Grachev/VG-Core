@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using VG.Internal;
 
@@ -7,8 +8,6 @@ namespace VG
 {
     public class Ads : Manager
     {
-
-
         private static Ads instance; 
 
         public static bool skipAds 
@@ -30,7 +29,7 @@ namespace VG
 
         private float _currentInterstitialCooldown = 0f;
 
-        private static float interstitialCooldown => Environment.editor ? 0f : instance._interstitialCooldown;
+        private static float interstitialCooldown => instance._interstitialCooldown;
 
 
         protected override void OnInitialized()
@@ -38,10 +37,17 @@ namespace VG
             instance = this;
             _currentInterstitialCooldown = interstitialCooldown;
             Log(Core.Message.Initialized(managerName));
+                
+            StartCoroutine(SubscribeForEnableAds());
+        }
+
+        private IEnumerator SubscribeForEnableAds()
+        {
+            yield return new WaitUntil(() => Saves.Initialized);
             Saves.Bool[Key_Save.ads_enabled].onChanged += OnAdsEnabledChanged;
         }
 
-        
+
 
         public static class Rewarded
         {
@@ -109,7 +115,7 @@ namespace VG
                     return;
                 }
 
-                if (instance._currentInterstitialCooldown > 0f && !ignoreCooldown)
+                if (!now && !ignoreCooldown)
                 {
                     instance.Log("Cooldown is not finished. Ad key: " + key_ad);
                     onShown?.Invoke(Result.Cooldown);

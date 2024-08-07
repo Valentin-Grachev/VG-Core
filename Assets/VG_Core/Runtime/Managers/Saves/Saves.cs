@@ -7,6 +7,7 @@ namespace VG
 {
     public class Saves : Manager
     {
+        public static event Action onDeleted;
         private static bool reseting = false;
 
 
@@ -233,6 +234,8 @@ namespace VG
 
         private static Saves instance;
 
+        public static bool Initialized => instance != null && service.initialized;
+
         private static SaveService service => instance.supportedService as SaveService;
 
         protected override string managerName => "VG Saves";
@@ -276,6 +279,8 @@ namespace VG
             {
                 if (success) instance.Log("Saves deleted.");
             });
+
+            onDeleted?.Invoke();
         }
 
 
