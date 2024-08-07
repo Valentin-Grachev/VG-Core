@@ -7,6 +7,7 @@ namespace VG
 {
     public class Saves : Manager
     {
+        public static event Action onDeleted;
         private static bool reseting = false;
 
 
@@ -278,6 +279,8 @@ namespace VG
             {
                 if (success) instance.Log("Saves deleted.");
             });
+
+            onDeleted?.Invoke();
         }
 
 

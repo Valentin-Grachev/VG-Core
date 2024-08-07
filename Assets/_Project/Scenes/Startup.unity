@@ -1066,7 +1066,6 @@ MonoBehaviour:
   _debugLogs: 0
   _services:
   - {fileID: 670562208}
-  _waitInitializations: []
 --- !u!114 &670562208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1079,7 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d94c727fe8a83f439d32ab782322df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useInBuild: 0
+  _useInBuild: 1
   _playerRegistered: 1
   _playerEntry:
     playerName: You
@@ -3827,7 +3826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8dadca5f44cf747875905d52097e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useInBuild: 1
+  _useInBuild: 0
   _rewardPanel: {fileID: 542607541}
   _acceptRewardButton: {fileID: 2102970117}
   _notRewardedButton: {fileID: 782376091}
@@ -3946,11 +3945,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3853901789333528842}
-  - component: {fileID: 7331572124548137753}
+  - component: {fileID: 5901857363285967690}
   - component: {fileID: 5901857363285967689}
   - component: {fileID: 5586674214463914613}
   m_Layer: 0
-  m_Name: Iap
+  m_Name: Purchases
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4246,7 +4245,6 @@ MonoBehaviour:
   _debugLogs: 0
   _services:
   - {fileID: 1852981584499511059}
-  _waitInitializations: []
 --- !u!222 &3106436383482829196
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4427,7 +4425,7 @@ MonoBehaviour:
   - {fileID: 4472646972096963583}
   - {fileID: 5624364671187809791}
   - {fileID: 6395860499222617104}
-  - {fileID: 7331572124548137753}
+  - {fileID: 5901857363285967690}
   - {fileID: 5567435901004350080}
   - {fileID: 3073126880421999194}
   - {fileID: 8020874636528995455}
@@ -4979,22 +4977,9 @@ MonoBehaviour:
   _services:
   - {fileID: 469397477891045503}
   - {fileID: 4045417568997687903}
-  _waitInitializations: []
   _onLanguageDefined:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Language_BootStatus, Assembly-CSharp
-        m_MethodName: SetLanguage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 8020874636528995455}
         m_TargetAssemblyTypeName: VG.Localization, Assembly-CSharp
         m_MethodName: SetLanguage
@@ -5023,7 +5008,6 @@ MonoBehaviour:
   _services:
   - {fileID: 5345672062687227682}
   - {fileID: 1455495557037594765}
-  _waitInitializations: []
 --- !u!114 &5586674214463914613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5036,6 +5020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d9636769b309b4a94a4bbdabed2f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _productCatalog: {fileID: 11400000, guid: 54e7817ae1787bc4b970f4b411ab8f04, type: 2}
 --- !u!114 &5586838909343281452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5064,7 +5049,6 @@ MonoBehaviour:
   _services:
   - {fileID: 8090846151886812608}
   - {fileID: 2258312118686129026}
-  _waitInitializations: []
   _startValues: {fileID: 11400000, guid: 432a430c41ddfbb4ca1c76a1ee37bdb2, type: 2}
 --- !u!1 &5709981982299163401
 GameObject:
@@ -5152,11 +5136,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d30a9a56a735d409a8716e13331835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useInBuild: 1
+  _useInBuild: 0
   _purchasePanel: {fileID: 7669604502304819975}
   _acceptButton: {fileID: 724711098}
   _rejectButton: {fileID: 3316683299610709595}
   _idText: {fileID: 851249091}
+--- !u!114 &5901857363285967690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569327092833687503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63fb50dc8cc34da42885638c1a7e46a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _debugLogs: 0
+  _services:
+  - {fileID: 5586674214463914613}
+  - {fileID: 5901857363285967689}
+  _productCatalog: {fileID: 11400000, guid: 54e7817ae1787bc4b970f4b411ab8f04, type: 2}
 --- !u!224 &6053861099877601943
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5234,8 +5235,7 @@ MonoBehaviour:
   _services:
   - {fileID: 823176315434973648}
   - {fileID: 1019924933469146634}
-  _waitInitializations: []
-  _interstitialCooldown: 63
+  _interstitialCooldown: 60
 --- !u!224 &6778950247178767523
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5430,25 +5430,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7331572124548137753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569327092833687503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c14528aa5307a443884e383ac197d57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _debugLogs: 0
-  _services:
-  - {fileID: 5901857363285967689}
-  - {fileID: 5586674214463914613}
-  _waitInitializations:
-  - {fileID: 5624364671187809791}
-  _iapCatalog: {fileID: 11400000, guid: 5e41301309eb4484a870830a86685e71, type: 2}
 --- !u!1 &7379668604361204126
 GameObject:
   m_ObjectHideFlags: 0

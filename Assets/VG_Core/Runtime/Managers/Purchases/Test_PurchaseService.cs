@@ -2,12 +2,11 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using VG.Internal;
 
 
 namespace VG
 {
-    public class Test_IapService : IapService
+    public class Test_PurchaseService : PurchaseService
     {
         [SerializeField] private bool _useInBuild;
 
@@ -17,22 +16,17 @@ namespace VG
         [SerializeField] private Button _rejectButton;
         [SerializeField] private TextMeshProUGUI _idText;
 
-
         public override bool supported => _useInBuild || Environment.editor;
 
-        public override void MarkAsConsumed(string key_product) => Core.LogEditor("Consumed: " + key_product);
 
-
-        public override string GetPriceString(string key_product) => key_product.ToString();
-
-
+        public override string GetPriceString(string productKey) => productKey.ToString();
         public override void Initialize() => InitCompleted();
 
 
-        public override void Purchase(string key_product, Action<bool> onSuccess)
+        public override void Purchase(string productKey, Action<bool> onSuccess)
         {
             _purchasePanel.SetActive(true);
-            _idText.text = key_product;
+            _idText.text = productKey;
 
             _acceptButton.onClick.RemoveAllListeners();
             _acceptButton.onClick.AddListener(() =>

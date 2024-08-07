@@ -45,7 +45,7 @@ public class Hack : Initializable
     {
         get
         {
-            string priceString = Iap.GetPriceString(Key_Product.no_ads);
+            string priceString = Purchases.GetPriceString(Key_Product.no_ads);
             Debug.Log($"Price = {priceString}");
 
             if (priceString == string.Empty)

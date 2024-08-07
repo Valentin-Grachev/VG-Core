@@ -13,13 +13,13 @@ public class ShowNoAdsOffer_Event : EventHandler
     protected override void Subscribe()
     {
         Ads.Interstitial.onShown += OnInterstitialShown;
-        Iap.onPurchased += OnProductPurchased;
+        Purchases.onPurchased += OnProductPurchased;
     }
 
     protected override void Unsubscribe()
     {
         Ads.Interstitial.onShown -= OnInterstitialShown;
-        Iap.onPurchased -= OnProductPurchased;
+        Purchases.onPurchased -= OnProductPurchased;
     }
 
     private void OnProductPurchased(string key_product, bool success)

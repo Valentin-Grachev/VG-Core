@@ -13,7 +13,7 @@ namespace VG
             _timeToAutosave = _autosaveTimeInterval;
         }
 
-        void Update()
+        private void Update()
         {
             if (!Startup.loaded) return;
 

@@ -33,6 +33,9 @@ namespace VG
 
         public void LoadAllClips()
         {
+            if (_cashedClipNames.Count == 0 || _cashedClipNames == null)
+                InitCompleted();
+
             cashedClips.Clear();
             _loadedClips = 0;
 
