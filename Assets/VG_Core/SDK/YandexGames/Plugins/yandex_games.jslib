@@ -326,5 +326,27 @@ mergeInto(LibraryManager.library, {
     console.log('Game ready');
   },
   
+  InitializeMetrica: function() {
+    
+  }
+
+
+
+
+  SendEvent: function(eventNameUtf8, eventDataUtf8) {
+    const eventName = UTF8ToString(eventNameUtf8);
+    const eventData = UTF8ToString(eventDataUtf8);
+    try {
+      const eventDataJson = eventData === '' ? undefined : JSON.parse(eventData);
+      ym(window.yandexMetricaCounterId, 'reachGoal', eventName, eventDataJson);
+
+    } catch (e) {
+
+    }
+
+  },
+
+
+
 
 });
