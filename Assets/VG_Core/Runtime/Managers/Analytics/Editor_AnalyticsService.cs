@@ -14,11 +14,15 @@ namespace VG
 
         public override void Initialize() => InitCompleted();
 
-        public override void Track(string key_analytics, Dictionary<string, object> parameters)
+        public override void SendEvent(string key_analytics, Dictionary<string, object> parameters)
         {
-            string message = "Event tracked: " + key_analytics;
-            foreach (var parameter in parameters)
-                message += "\n" + parameter.Key + ": " + parameter.Value.ToString();
+            string message = "Event sent: " + key_analytics;
+
+            if (parameters != null)
+            {
+                foreach (var parameter in parameters)
+                    message += "\n" + parameter.Key + ": " + parameter.Value.ToString();
+            }  
 
             Core.LogEditor(message);
         }

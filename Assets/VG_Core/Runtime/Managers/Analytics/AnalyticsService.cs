@@ -6,7 +6,7 @@ namespace VG
     public abstract class AnalyticsService : Service
     {
 
-        public abstract void Track(string key_analytics, Dictionary<string, object> parameters);
+        public abstract void SendEvent(string eventKey, Dictionary<string, object> parameters);
 
     }
 }

@@ -21,13 +21,19 @@ namespace VG
         }
 
 
-        public static void Track(string key_analytics, Dictionary<string, object> parameters)
+        public static void SendEvent(string eventName, Dictionary<string, object> parameters = null)
         {
-            service.Track(key_analytics, parameters);
+            service.SendEvent(eventName, parameters);
 
-            string message = "Event tracked: " + key_analytics;
-            foreach (var parameter in parameters)
-                message += "\n" + parameter.Key + ": " + parameter.Value.ToString();
+            string message = "Event sent: " + eventName;
+
+            if (parameters != null)
+            {
+                foreach (var parameter in parameters)
+                    message += "\n" + parameter.Key + ": " + parameter.Value.ToString();
+            }
+
+            
 
             instance.Log(message);
         }

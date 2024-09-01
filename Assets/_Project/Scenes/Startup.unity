@@ -4122,7 +4122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0cc19efe39ee7438e4c6032b075350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useInBuild: 1
+  _useInBuild: 0
 --- !u!1 &2186359623144661381
 GameObject:
   m_ObjectHideFlags: 0
@@ -4242,8 +4242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3cd08f8cb59ca4aae5b3fcc10d4229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debugLogs: 0
+  _debugLogs: 1
   _services:
+  - {fileID: 7493252050249330694}
   - {fileID: 1852981584499511059}
 --- !u!222 &3106436383482829196
 CanvasRenderer:
@@ -5459,6 +5460,7 @@ GameObject:
   - component: {fileID: 2808984477291278003}
   - component: {fileID: 3073126880421999194}
   - component: {fileID: 1852981584499511059}
+  - component: {fileID: 7493252050249330694}
   m_Layer: 0
   m_Name: Analytics
   m_TagString: Untagged
@@ -5466,6 +5468,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7493252050249330694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7493252050249330693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dbc804fbca3d14582de24c2a12e8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _counterId: 98208910
 --- !u!1 &7669604502304819975
 GameObject:
   m_ObjectHideFlags: 0
